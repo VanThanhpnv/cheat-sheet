@@ -75,16 +75,111 @@ I can also do some more work with optionals :
 
 ```
 optional.map(string -> string.toLowerCase(Locale.US))
-    ...
-optional.ifPresent(string -> doSomething(string));
+    .ifPresent(string -> doSomething(string));
 ```
 
 With optionals, we can completly avoid null checks.
 
 ## Stream
 
+A stream is a flaw of entity that you can operate on. It offers some functionnal transformations on stream data. You
+can replace your **for** and **while** loop with this. It might be harder to write but it is way easier to read and reason about.
+
 ### Creating a stream
+
+From a list :
+
+```
+List<String> list;
+list.stream();
+```
+
+Every collections offer this method.
+
+From an array :
+
+```
+Arrays.stream(myArray);
+```
+
+From an Iterator :
+
+```
+Iterable<T> iterable = () -> sourceIterator;
+return StreamSupport.stream(iterable.spliterator(), parallel);
+```
+
+James offers a utility for this :
+
+```
+Iterators.toStream(iterator);
+```
 
 ### Operating on a stream
 
+The oerations we will need it the tickets are :
+
+ - filer : only keep results that matches a conditions
+
+```
+    peoples.stream()
+        .filter(people -> people.getAge() > 18)
+```
+
+ - map : transform the result. The transformation will be applied to each element of the stream.
+
+```
+    peoples.stream()
+        .map(people -> people.getAge())
+```
+
+ - findFirst : get the first element of the stream. It is useful after a filter operation
+
+```
+    peoples.stream()
+        .filter(people -> people.isTeamLeader())
+        .findFirst()
+```
+
+ - flatMap : If some transformation returns a stream, we might don't want a stream of stream, but a single stream.
+ 
+```
+    employees.stream()
+        .flapMap(employee -> employee.getChildren().stream())
+        // Now we have the stream of all the children of the employees
+```
+
+ - sort (here on Comparable data)
+
+```
+    employee.stream()
+        .sort((employee1, employee2) -> employee1.compareTo(employee2))
+```
+
 ### Getting the result of a stream calculation
+
+We don't want to modify the result of the calculations we made hence we return Immutable datas.
+
+Return a list :
+
+```
+return initialCollection.stream()
+    .filter(/*Some condition*/)
+    .collect(Guavate.toImmutableList());
+```
+
+Return a map : 
+
+```
+return initialCollection.stream()
+    .filter(/*Some condition*/)
+    .collect(Guavate.toImmutableMap(item -> item.extractKey()));
+```
+
+Or : 
+
+```
+return initialCollection.stream()
+    .filter(/*Some condition*/)
+    .collect(Guavate.toImmutableMap(item -> item.extractKey(), item -> item.extractValue()));
+```
