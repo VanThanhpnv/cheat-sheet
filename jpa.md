@@ -44,7 +44,7 @@ Example :
 
 With :
 
-```
+```java
 @Entity(name = "Subscription")
 @Table(name = "JAMES_SUBSCRIPTION")
 public class JPASubscription implements Subscription {
