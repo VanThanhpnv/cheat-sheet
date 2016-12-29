@@ -6,7 +6,7 @@ Please observe the following rules during your work :
  - Never write a method with more than 2 level of indentation
  - Names should be explicit.
 
-```
+```java
 Mail m;    // Bad name
 Mail mail; // Way better
 ```
@@ -18,7 +18,7 @@ Mail mail; // Way better
  - Respect the SOLID principals. Avoid side effects. Avoid sharing objects.
  - Don't realoccate variables : 
 
-```
+```java
 // NOT OK
 Mail mail = something;
 //...
