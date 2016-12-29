@@ -10,7 +10,7 @@ In this session we will use JPA as a key/value database reader, wich makes queri
 
 Example :
 
-```
+```java
     public void save(JPASubscription subscription) throws SubscriptionException {
         try {
             entityManager.getTransaction().begin();
