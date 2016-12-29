@@ -73,6 +73,7 @@ public class JPASubscription implements Subscription {
     public boolean equals(Object obj) {
         // Ommitted for simplicity
     }
+}
 ```
 
 Remarks : 
