@@ -4,7 +4,7 @@ We will use **Github** to work together. This small tutorial explains how to ope
 
 ------------------------------------------
 
- - 1/ Visit https://github.com/PVN-Linagora
+ - 1/ Visit https://github.com/PVN-Linagora/james-project
  
  - 2/ Click the fork button : 
  
