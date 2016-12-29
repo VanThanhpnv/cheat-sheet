@@ -7,4 +7,3 @@ Here is the list :
  - [Writing good tests](tests.md). Also covers the use of assertJ.
  - [Writing code with java 8](java-8.md)
  - Saving datas in JPA
- - Saving datas in Cassandra
