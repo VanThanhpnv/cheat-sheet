@@ -17,7 +17,7 @@ During these two weeks, we are going to work with two parts of this mail server 
  
 Here is one architecture schema of James :
 
-![](internal.png)
+![](img/internal.png)
 
 ## Developping in James
 
