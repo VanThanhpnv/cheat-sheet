@@ -36,4 +36,4 @@ Week 2:
  - Link the the story board : https://trello.com/b/EaOYyVUN/user-stories
  - Link to the task board : https://trello.com/b/NzO97uZE/scrum-pvn
  - AssertJ documentation : http://joel-costigliola.github.io/assertj/
- - 
+
