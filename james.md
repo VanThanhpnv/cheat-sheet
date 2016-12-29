@@ -17,7 +17,7 @@ During these two weeks, we are going to work with two parts of this mail server 
  
 Here is one architecture schema of James :
 
-Here is a picture explaining the mailet pipeline :
+![](internal.png)
 
 ## Developping in James
 
