@@ -4,7 +4,7 @@ To do that, we will follow the SCRUM method. For the purposes of this presentati
 
 # Our adapted SCRUM
 
-## Planning
+## SCRUM Planning
 
 Each week will start with a short Sprint planning.
 
@@ -38,7 +38,7 @@ Please don't take new ticket until the review is validated. While waiting, you c
 
 Once your review is approuved, you can take a new ticket on the board.
 
-## Planning
+## SCRUM Review
 
 First we will count the number of point scored. We will adapt the focus factor.
 
