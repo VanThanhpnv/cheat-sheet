@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Open Up</title>
+
+		<meta name="description" content="Open Up : Lesson 3 LDAP servers">
+		<meta name="author" content="Tellier Benoit">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+<section>
+<h1>Hackaton on James</h1>
+
+<h2>Presentation</h2>
+
+<img data-src="large.png">
+
+<p>Speaker : <a>Benoit Tellier</a></p>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+<h2>Why this presentation ?</h2>
+
+<ul>
+<li>Who am I</li>
+<li>What is James</li>
+<li>What is SCRUM</li>
+<li>Create our first Pull Request with Github</li>
+<li>Writing clean code</li>
+<li>Writing tests</li>
+<li>Using java-8</li>
+</ul>
+</section>
+
+<!--
+=============================================
+===========    10 mins           ============
+=============================================
+-->
+
+
+<section><h1>Who am I</h1></section>
+
+<!--
+=============================================
+===========    10 mins           ============
+=============================================
+-->
+
+<section>
+
+<section>
+<h2>James</h2>
+<p>Free Mail server from the Apache Foundation<br/>
+<img data-src="james-logo.gif"></p>
+<p class="fragment">Mail server chosen for OpenPaas</p>
+<p class="fragment">Committer for ~ 2 year</p>
+<p class="fragment">IMAP, SMTP, JMAP, LMTP, POP3...</p>
+</section>
+
+  <section>
+    <h2>Why the James server?</h2>
+    <ul>
+      <li>Open source</li>
+      <li>Easy to extend : back-ends</li>
+      <li>Easy to customize : mail processing</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Architecture of JAMES</h2>
+    <img data-src="internal.png">
+  </section>
+
+  <section>
+    <h2>What we will do</h2>
+    <ul>
+      <li>Work in mail processing</li>
+      <li>Work with the inMemory mailbox</li>
+      <li>Work with the JPA mailbox</li>
+      <li>Implement JPA quotas</li>
+    </ul>
+  </section>
+
+  <section>
+   <h2>Maven reminder</h2>
+   <pre><code>mvn clean install --DskipTests
+
+cd mailet/standard
+mvn clean install
+
+mvn -Dtest=JPAMailboxTest -DfailIfNoTests=false -Pjpa -pl org.apache.james:apache-james-mpt-imapmailbox-jpa -am test</code></pre>
+  </section>
+</section>
+
+<!--
+=============================================
+===========    20 mins           ============
+=============================================
+-->
+
+<section>
+
+  <section><h1>Our SCRUM</h1></section>
+
+  <section>
+    <h2>Planning</h2>
+    <ul>
+      <li>Objective of the Sprint</li>
+      <li>Count available hours of work</li>
+      <li>Determine focus factor and available hours</li>
+      <li>Task estimation (generate backlog)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Daily meeting</h2>
+    <ul>
+      <li>At the beginning of a practical work</li>
+      <li>What we did / what to do (written + read)</li>
+      <li>Burndown chart update</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Working time</h2>
+    <ul>
+      <li>Pair programming. Switch every hour.</li>
+      <li>Open review on GitHub</li>
+      <li>One ticket in Progress or in Review per group</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sprint Review</h2>
+    <ul>
+      <li>If applicable : demo</li>
+      <li>Is the objective met ?</li>
+      <li>Count scored points. Update focus factor.</li>
+      <li>2 positive + 2 negative points per people (written + read)</li>
+      <li>Determine 2 way of improvement for next Sprint</li>
+    </ul>
+  </section>
+</section>
+
+<!--
+=============================================
+===========    20 mins           ============
+=============================================
+-->
+
+<section>
+  <section>
+	<h1>Open your first GitHub PR</h1>
+        <p>Follow speaker example!</p>
+  </section>
+</section>
+
+
+<!--
+=============================================
+===========    20 mins           ============
+=============================================
+-->
+
+<section>
+  <section>
+	<h1>Writting clean code</h1>
+  </section>
+  <section>
+    <h1>Why ?</h1>
+    <p>80% time reading, 20% time writing code</p>
+    <p>Review should be easy</p>
+    <p>Long project (~10 -> 20 years)</p>
+    <p>OpenSource</p>
+  </section>
+  <section>
+    <h1>Names!!!</h1>
+    <p>Variable, method and class</p>
+    <p>Should be meaningfull</p>
+    <p>50% of coder job!</p>
+    <pre><code>Mail m;    // Bad name
+Mail mail; // Way better</code></pre>
+  </section>
+  <section>
+    <h1>Advices on size</h1>
+    <p>Method : max ~10 line</p>
+    <p>Method : Max ~2 level of indentation</p>
+    <p>Class : Max ~200 lines</p>
+    <p>Class should ideally be small and do one thing well</p>
+    <p>Don't rely on side effects</p>
+  </section>
+  <section>
+    <h1>Advices on tests</h1>
+    <p>All code should be tested</p>
+    <p>Run tests before opening reviews</p>
+    <p>Class : Max ~200 lines</p>
+  </section>
+
+  <section>
+    <h1>Reallocation</h1>
+<pre><code>// NOT OK
+Mail mail = something;
+//...
+if (condition) {
+    mail = otherMail;
+}
+
+// OK
+Mail mail;
+if (condition) {
+    mail = something;
+} else {
+    mail = otherMail;
+}
+
+// Even better
+Mail mail = retrieveMail()
+//And
+private Mail retrieveMail() {
+    if (condition) {
+        return something;
+    } else {
+        return otherMail;
+    }
+}</code></pre>
+  </section>
+
+</section>
+
+
+<!--
+=============================================
+===========    20 mins           ============
+=============================================
+-->
+
+<section>
+  <section>
+	<h1>Writting tests</h1>
+  </section>
+  <section>
+    <h1>Test skeleton</h1>
+<pre><code>import static org.assertj.core.api.Assertions.assertThat;
+
+class MyTest {
+    private Testee testee;
+
+    @Before
+    public void setUp() {
+        testee = new Testee();
+    }
+
+    // Here tests..
+}</code></pre>
+  </section>
+  <section>
+    <h1>AssertJ : collections</h1>
+<pre><code>    @Test
+    public void demonstrateCollections() {
+        // Given
+        String data = "";
+
+        // When
+        Collection collection = testee.generateCollection(data);
+
+        // Then
+        assertThat(collection).isEmpty();
+        assertThat(collection).containsOnly(a, b, c); //Look for the elements but nut the order
+        assertThat(collection).containsExactly(a, b, c);
+    }</code></pre>
+  </section>
+  <section>
+    <h1>AssertJ : Booleans</h1>
+<pre><code>    @Test
+    public void demonstrateBoolean {
+        boolean bool = testee.IsItRainaing();
+
+        assertThat(bool).isFalse();
+        assertThat(bool).isTrue();
+    }</code></pre>
+  </section>
+  <section>
+    <h1>AssertJ : Objects</h1>
+<pre><code>    @Test
+    public void demonstrateObjects {
+        String aString = testee.getLocation();
+
+        assertThat(aString).isEqualTo("abcd");
+        assertThat(aString).startsWith("abc");
+    }
+}</code></pre>
+  </section>
+  <section>
+    <h2>Testing rules</h2>
+    <ul>
+    <li>[method] Should [Action] When [Condition]</li>
+    <li><b>simple</b>: Avoid "if", "for", method extraction.</li>
+    <li>Our tests should be short. A few lines ideally.</li>
+    <li><b>corner cases</b>: What happen when the collection is empty ? When it's null ?</li>
+    <li>We choosed to test threw the API</li>
+    </ul>
+  </section>
+</section>
+
+<!--
+=============================================
+===========    20 mins           ============
+=============================================
+-->
+
+<section>
+  <section>
+	<h1>Using java-8</h1>
+  </section>
+  <section>
+    <h1>Equals and HashCode</h1>
+<pre><code>private final String field1;
+private final String field2;
+
+public boolean equals(Object o) {
+   if (o instanceOf MyClass.class) {
+       MyClass that = (MyClass) o;
+
+       return Objects.equal(this.field1, that.field1)
+           && Objects.equal(this.field2, that.field2);
+   }
+   return false
+}
+
+public int hashCode() {
+    return Objects.hashCode(field1, field2);
+}</code></pre>
+  </section>
+  <section>
+    <h1>Lambdas</h1>
+<pre><code>Before :
+
+Function<String, String> function = new Function<String, String>() {
+   @Override
+   public String apply(String input) {
+       return input.toUpperCase(Locale.US);
+   }
+};
+
+Now :
+
+Function<String, String> function = string -> string.toUpperCase(Locale.US);</code></pre>
+  </section>
+  <section>
+    <h1>Optional : creation</h1>
+<pre><code>Optional<String> example = Optional.empty();
+Optional<String> example = Optional.of("This string will never be null");
+Optional<String> example = Optional.ofNullable(aStringThatCanBeNull);</code></pre>
+  </section>
+  <section>
+    <h1>Optional : retieve value</h1>
+<pre><code>optional.orElse("Replacement value. Will be returned if empty.");
+optional.orElseThrow(new Exception("Will be thrown if empty"));</code></pre>
+  </section>
+  <section>
+    <h1>Optional : Do some more work</h1>
+<pre><code>optional.map(string -> string.toLowerCase(Locale.US))
+    .ifPresent(string -> doSomething(string));</code></pre>
+  </section>
+  <section>
+    <h1>Stream : creation</h1>
+<pre><code>List<String> list;
+list.stream();
+
+From an array :
+
+Arrays.stream(myArray);
+
+From an Iterator :
+
+Iterable<T> iterable = () -> sourceIterator;
+return StreamSupport.stream(iterable.spliterator(), parallel);
+
+James offers a utility for this :
+
+Iterators.toStream(iterator);</code></pre>
+  </section>
+  <section>
+    <h1>Stream : filter</h1>
+<pre><code>    peoples.stream()
+        .filter(people -> people.getAge() > 18)</code></pre>
+  </section>
+  <section>
+    <h1>Stream : map</h1>
+<pre><code>peoples.stream()
+        .map(people -> people.getAge())</code></pre>
+  </section>
+  <section>
+    <h1>Stream : findFirst()</h1>
+<pre><code>peoples.stream()
+        .filter(people -> people.isTeamLeader())
+        .findFirst()</code></pre>
+  </section>
+  <section>
+    <h1>Stream : flatMap()</h1>
+<pre><code>    employees.stream()
+        .flapMap(employee -> employee.getChildren().stream())
+        // Now we have the stream of all the children of the employees</code></pre>
+  </section>
+  <section>
+    <h1>Stream : sorted</h1>
+<pre><code>    employee.stream()
+        .sorted((employee1, employee2) -> employee1.compareTo(employee2))</code></pre>
+  </section>
+  <section>
+    <h1>Stream : collect()</h1>
+<pre><code>Return a list :
+
+return initialCollection.stream()
+    .filter(/*Some condition*/)
+    .collect(Guavate.toImmutableList());
+
+Return a map :
+
+return initialCollection.stream()
+    .filter(/*Some condition*/)
+    .collect(Guavate.toImmutableMap(item -> item.extractKey()));
+
+Or :
+
+return initialCollection.stream()
+    .filter(/*Some condition*/)
+    .collect(Guavate.toImmutableMap(item -> item.extractKey(), item -> item.extractValue()));</code></pre>
+  </section>
+</section>
+<!--
+=============================================
+=============================================
+=============================================
+=============================================
+=============================================
+=============================================
+-->
+
+
+<section>
+	<h1>Questions ?</h1>
+        <ul>Link to cheat sheets:
+          <li><a href="https://github.com/PVN-Linagora/cheat-sheet/blob/master/james.md">James</a></li>
+          <li><a href="https://github.com/PVN-Linagora/cheat-sheet/blob/master/scrum.md">SCRUM</a></li>
+          <li><a href="https://github.com/PVN-Linagora/cheat-sheet/blob/master/github.md">Git and Github</a></li>
+          <li><a href="https://github.com/PVN-Linagora/cheat-sheet/blob/master/clean_code.md">Clean code</a></li>
+          <li><a href="https://github.com/PVN-Linagora/cheat-sheet/blob/master/tests.md">Tests</a></li>
+          <li><a href="https://github.com/PVN-Linagora/cheat-sheet/blob/master/java-8.md">Java 8</a></li>
+        </ul>
+</section>
+
+
+
+
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				slideNumber: true,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                                
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
