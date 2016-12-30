@@ -3,11 +3,17 @@
 These cheat sheets covers the topic we will work on for the two next weeks. They are reminders of the presentations.
 
 Here is the list :
+
+### Week one presentation
+
  - [James presentation](james.md). Also has a little **maven** presentation.
- - [Collaborating](collaborating.md) on **Github** and the **SCRUM** method
+ - Collaborating on [Github](github.md) and the [SCRUM](scrum.md) method
  - Writing [clean code](clean_code.md).
  - [Writing good tests](tests.md). Also covers the use of assertJ.
  - [Writing code with java 8](java-8.md)
+
+### Week two presentation
+
  - Saving datas in [JPA](jpa.md)
 
 ## Time planning

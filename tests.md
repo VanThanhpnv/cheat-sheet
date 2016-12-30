@@ -10,7 +10,7 @@ AssertJ have assertions, for java-8, for collections, for raw types and Strings.
 
 Here is the syntax :
 
-```
+```java
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MyTest {

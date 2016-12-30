@@ -8,7 +8,7 @@ Writing equals and hashCode is subject to errors, is long and hard to read.
 
 You can use Objects helper for getting this easier : 
 
-```
+```java
 private final String field1;
 private final String field2;
 
@@ -33,7 +33,7 @@ Lambdas are a good way to inline functions :
 
 Before : 
 
-```
+```java
 Function<String, String> function = new Function<String, String>() {
    @Override
    public String apply(String input) {
@@ -44,7 +44,7 @@ Function<String, String> function = new Function<String, String>() {
 
 Now : 
 
-```
+```java
 Function<String, String> function = string -> string.toUpperCase(Locale.US);
 ```
 
@@ -58,7 +58,7 @@ I have to specify my operations knowing that the value can be absent.
 
 Creating an Optional :
 
-```
+```java
 Optional<String> example = Optional.empty();
 Optional<String> example = Optional.of("This string will never be null");
 Optional<String> example = Optional.ofNullable(aStringThatCanBeNull);
@@ -66,14 +66,14 @@ Optional<String> example = Optional.ofNullable(aStringThatCanBeNull);
 
 Getting the value of an optional :
 
-```
+```java
 optional.orElse("Replacement value. Will be returned if empty.");
 optional.orElseThrow(new Exception("Will be thrown if empty"));
 ```
 
 I can also do some more work with optionals :
 
-```
+```java
 optional.map(string -> string.toLowerCase(Locale.US))
     .ifPresent(string -> doSomething(string));
 ```
@@ -89,7 +89,7 @@ can replace your **for** and **while** loop with this. It might be harder to wri
 
 From a list :
 
-```
+```java
 List<String> list;
 list.stream();
 ```
@@ -98,20 +98,20 @@ Every collections offer this method.
 
 From an array :
 
-```
+```java
 Arrays.stream(myArray);
 ```
 
 From an Iterator :
 
-```
+```java
 Iterable<T> iterable = () -> sourceIterator;
 return StreamSupport.stream(iterable.spliterator(), parallel);
 ```
 
 James offers a utility for this :
 
-```
+```java
 Iterators.toStream(iterator);
 ```
 
@@ -121,21 +121,21 @@ The oerations we will need it the tickets are :
 
  - filer : only keep results that matches a conditions
 
-```
+```java
     peoples.stream()
         .filter(people -> people.getAge() > 18)
 ```
 
  - map : transform the result. The transformation will be applied to each element of the stream.
 
-```
+```java
     peoples.stream()
         .map(people -> people.getAge())
 ```
 
  - findFirst : get the first element of the stream. It is useful after a filter operation
 
-```
+```java
     peoples.stream()
         .filter(people -> people.isTeamLeader())
         .findFirst()
@@ -143,7 +143,7 @@ The oerations we will need it the tickets are :
 
  - flatMap : If some transformation returns a stream, we might don't want a stream of stream, but a single stream.
  
-```
+```java
     employees.stream()
         .flapMap(employee -> employee.getChildren().stream())
         // Now we have the stream of all the children of the employees
@@ -151,7 +151,7 @@ The oerations we will need it the tickets are :
 
  - sort (here on Comparable data)
 
-```
+```java
     employee.stream()
         .sort((employee1, employee2) -> employee1.compareTo(employee2))
 ```
@@ -162,7 +162,7 @@ We don't want to modify the result of the calculations we made hence we return I
 
 Return a list :
 
-```
+```java
 return initialCollection.stream()
     .filter(/*Some condition*/)
     .collect(Guavate.toImmutableList());
@@ -170,7 +170,7 @@ return initialCollection.stream()
 
 Return a map : 
 
-```
+```java
 return initialCollection.stream()
     .filter(/*Some condition*/)
     .collect(Guavate.toImmutableMap(item -> item.extractKey()));
@@ -178,7 +178,7 @@ return initialCollection.stream()
 
 Or : 
 
-```
+```java
 return initialCollection.stream()
     .filter(/*Some condition*/)
     .collect(Guavate.toImmutableMap(item -> item.extractKey(), item -> item.extractValue()));
