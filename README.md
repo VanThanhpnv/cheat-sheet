@@ -6,6 +6,8 @@ Here is the list :
 
 ### Week one presentation
 
+Retrieve the full presentation [online](https://rawgit.com/PVN-Linagora/cheat-sheet/master/prez/week1/index.html)
+
  - [James presentation](james.md). Also has a little **maven** presentation.
  - Collaborating on [Github](github.md) and the [SCRUM](scrum.md) method
  - Writing [clean code](clean_code.md).
