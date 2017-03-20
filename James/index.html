@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>James@Linagora</title>
+
+		<meta name="description" content="James@Linagora">
+		<meta name="author" content="Tellier Benoit">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+	<section>
+<h2>James@linagora</h2>
+
+
+<img data-src="large.png"><br/>
+<img data-src="james-logo.png">
+<br/><br/><br/>
+<p>Speaker : <a>Benoit Tellier</a></p>
+
+</section>
+
+
+
+<section>
+<h2>Why this presentation ?</h2>
+
+<p>Fast presentation of James</p>
+
+<ul class="fragment">
+<li class="fragment">Why choosing James?</li>
+<li class="fragment">The Apache James project</li>
+<li class="fragment">Architecture...</li>
+<li class="fragment">... and technical details</li>
+</ul>
+</section>
+
+
+
+<section>
+
+<section>
+<h2>But... </h2>
+<h2 class="fragment">... a bit of context first</h2>
+</section>
+
+<section>
+  <h2>Linagora</h2>
+  <img data-src="lng.png">
+  <ul>
+    <li class="fragment">French open source software development company</li>
+    <li class="fragment">Gives organization control on their internal communications</li>
+    <li class="fragment">Present in France, Vietnam, Tunisia and Canada</li>
+    <li class="fragment">OBM, OpenPaas, LinShare, LinId, etc..</li>
+  </ul>
+</section>
+
+<section>
+  <h3>In Hanoï</h3>
+  <img data-src="linviet3.jpg">
+    <p class="fragment">Since april 2015</p>
+    <p class="fragment">Initiative like <b>Open-Up!</b> and <b>La French Tech</b></p>
+  <ul class="fragment">Opportunities:
+    <li class="fragment">Developer Java, Scala or JS</li>
+    <li class="fragment">System administrator</li>
+  </ul>
+</section>
+
+</section>
+
+<!-- NEW SECTION -->
+
+<section>
+<section>
+ <h2> Why James ? </h2>
+</section>
+<section>
+  <h3>The James project</h3>
+  <img data-src="james-logo.png">
+    <p class="fragment">Java Apache Mail Enterprise Server</p>
+    <ul>
+  
+  <li class="fragment">IMAP, SMTP, LMTP, POP3, Sieve, ManageSieve, etc..</li>
+  <li class="fragment">Linagora contributes since Septembre 2014</li>
+  <li class="fragment">Employees granted contributors since June 2015</li>
+  <li class="fragment">THE mail server backend supporting OpenPaas</li>
+</ul>
+</section>
+<section>
+  <h3>Previously...</h3>
+  <img data-src="logo.gif">
+    <p class="fragment">Cyrus IMAP</p>
+    <ul>
+  
+  <li class="fragment">A stable IMAP mail server</li>
+  <li class="fragment">BSD license</li>
+  <li class="fragment">OBM default email server</li>
+  <li class="fragment">Carnegie Mellon University started project in 1998</li>
+  <li class="fragment">Ready in 2002</li>
+</ul>
+</section>
+<section>
+ <h3>But... Scalability...</h3>
+ <img data-src="scalability.jpg">
+ <p class="fragment">Email protocols are connected</p>
+ <p class="fragment">No shared storage -> Protocol aware load-balancing</p>
+ <p class="fragment">Cyrus Murder to the rescue</p>
+ <img data-src="cyrus_sharding.png" class="fragment">
+</section>
+<section>
+ <h3>But... Availability...</h3>
+ <img data-src="spare.jpg">
+ <p class="fragment">Maildir storage</p>
+ <p class="fragment">Not officially supported by Cyrus</p>
+ <p class="fragment">Need distributed filesystem or filesystem replication + failover</p>
+ <p class="fragment">File locking support, efficient mmap implementation</p>
+</section>
+<section>
+ <img data-src="complex.jpg">
+</section>
+<section>
+ <img data-src="email-reply.png">
+ <p class="fragment">Integration with AI for automatic filtering</p>
+ <p class="fragment">Push calendars and contact to the app</p>
+ <p class="fragment">Etc...</p>
+</section>
+<section>
+ <h3>WebMail</h3>
+ <img data-src="proxy.png">
+ <p class="fragment">Browser can not do IMAP / SMTP</p>
+ <p class="fragment">Need for a proxy</p>
+ <p class="fragment">Non standard protocols</p>
+</section>
+<section>
+  <h3>James to the rescue!</h3>
+  <img data-src="james-logo.png">
+  
+  <li class="fragment">Customize mail pipeline</li>
+  <li class="fragment">Implement the JMAP protocol</li>
+  <li class="fragment">100% scalable mail server</li>
+</ul>
+</section>
+<section>
+  <h3>JMAP</h3>
+  <img data-src="JSON.png"><br/>
+  <a href="http://jmap.io">http://jmap.io</a>
+  
+  <li class="fragment">HTTP and Websocket based</li>
+  <li class="fragment">Json format</li>
+  <li class="fragment">Young spec moving toward RFC</li>
+  <li class="fragment">James first server implementation</li>
+</ul>
+</section>
+</section>
+
+
+
+<!-- NEW SECTION -->
+
+<section>
+<section>
+  <h2>Apache, you said ?</h2>
+</section>
+<section>
+  <img data-src="asf_logo.png">
+  <p class="fragment">From 1999</p>
+  <p class="fragment">Numerous projects</p>
+  <p class="fragment">Community of developers and users</p>
+  <p class="fragment">Community requirements</p>
+  <p class="fragment">The ASF board</p>
+</section>
+<section>
+  <img data-src="asf_logo.png">
+  <p class="fragment">Each project is autonomous</p>
+  <p class="fragment">Common project hierarchy (user, developper, committer, PMC, chairman)</p>
+  <p class="fragment">Common process: release, promossion</p>
+  <p class="fragment">Shared infrastructure : Git, JIRA, Jenkins, mails, etc...</p>
+</section>
+<section>
+  <img data-src="james-logo.png">
+  <p class="fragment">Linagora is the first James contributor</p>
+  <p class="fragment">5 full time employees</p>
+  <p class="fragment">~1.500 code contributions</p>
+</section>
+<section>
+  <img data-src="large.png"><ul>
+  <li class="fragment">Cassandra backend improvement</li>
+  <li class="fragment">ElasticSearch backend</li>
+  <li class="fragment">JMAP implementation</li>
+  <li class="fragment">IMAP Quota + Mailbox annotation</li>
+  <li class="fragment">Mailet sanitizing</li>
+  <li class="fragment">Metrics</li>
+  <li class="fragment">Etc...</li></ul>
+</section>
+<section>
+  <img data-src="github.png">
+</section>
+<section>
+  <h2>Project roadmap</h2><ul>
+  <li class="fragment">Deploy @openpaas.linagora.com</li>
+  <li class="fragment">New website</li>
+  <li class="fragment">V3.0 release</li></ul>
+</section>
+<section>
+  <img data-src="website.png">
+</section>
+</section>
+
+
+<!-- NEW SECTION -->
+<section>
+<section>
+<h3>Arctitecture</h3>
+<img data-src="archi.jpg">
+</section>
+<section>
+<h3>James' subprojects</h3>
+<img data-src="libs.png">
+</section>
+<section>
+<h3></h3>
+<h3>James' internals</h3>
+<img data-src="components.png">
+</section>
+<section>
+<h3>Nowadays setup</h3>
+<img data-src="setup.png">
+</section>
+<section>
+<h3>Targetted distributed setup</h3>
+<img data-src="distr.png">
+</section>
+</section>
+
+<!-- NEW SECTION -->
+<section>
+<section>
+<h3>Technical details</h3>
+<img data-src="technical.jpg">
+</section>
+<section>
+<h3>Java 6 VS Java 8</h3>
+<img data-src="evolv.jpg">
+</section>
+<section>
+<img data-src="spring.png"> <br/><p>vs</p><br/> <img data-src="guice.jpg">
+</section>
+<section>
+<img data-src="cassandra.png">
+<ul>
+ <li class="fragment">Default mailbox with OpenPaas</li>
+ <li class="fragment">CAP: Tradable availability/Consistancy</li>
+ <li class="fragment">Log structured merge tree: Write efficiency</li>
+ <li class="fragment">Data model: Tables with CQL</li>
+ <li class="fragment">Heavy use of CompletableFutures</li>
+</ul>
+</section>
+<section>
+<img data-src="elasticsearch.png">
+<ul>
+ <li class="fragment">Default search backend with OpenPaas</li>
+ <li class="fragment">Consistent</li>
+ <li class="fragment">Updated via the mailbox event system</li>
+ <li class="fragment">Many information of emails</li>
+</ul>
+</section>
+
+<section>
+<h3>Testing strategy</h3>
+<img data-src="test.jpg">
+<ul>
+ <li class="fragment">One code change -> one unit test</li>
+ <li class="fragment">Strong integration testing</li>
+ <li class="fragment">Use of testcontainers (docker)</li>
+</ul>
+</section>
+
+<section>
+<h3>Continuous integration</h3>
+<img data-src="jenkins_docker.png">
+<ul>
+ <li class="fragment">Code defined ci</li>
+ <li class="fragment">Packaged with docker</li>
+ <li class="fragment">With complicated testing pipeline</li>
+ <li class="fragment">Retrieve <a href="https://medium.com/@benoittellier3/dockerized-ci-of-linagoras-james-team-b01bd34a2641">the presentation</a></li>
+</ul>
+</section>
+<section>
+<h3>Mail processing: mailets</h3>
+<img data-src="mailets.png">
+<ul>
+ <li class="fragment">Topology from XML files</li>
+ <li class="fragment">Many mailets/matchers provided</li>
+ <li class="fragment">You can write your owns!</li>
+</ul>
+</section>
+<section>
+<h3>Performance: gatling</h3>
+<img data-src="gatling.jpg">
+<img data-src="gatling.png" class="fragment">
+</section>
+<section>
+<h3>Performance: live metrics</h3>
+<img data-src="metrics.png">
+</section>
+<section>
+<h3>Web administration interface</h3>
+<img data-src="admin.png">
+<br/>
+<ul>
+ <li class="fragment">Brand new!</li>
+ <li class="fragment">Intoduced for Gatling provisionning</li>
+ <li class="fragment">We will integrate it with OpenPaas Admin...</li>
+ <li class="fragment">... and add Quotas / RRTs</li>
+</section>
+
+</section>
+
+<section>
+	<h2>Questions?</h2>
+<p style="font-size: 0.7em">Contact: Benoit Tellier<br/>
+<img data-src="me.JPG"/><br/>
+<a href="https://medium.com/@benoittellier3">@benoittellier3</a> on medium<br/>
+<a href="https://github.com/chibenwa/">chibenwa</a> on <b>GitHub</b><br/>
+<a href=mailto://btellier@linagora.com>btellier@linagora.com</a>
+<br/>Developer @linagora, Apache James PMC, Open-Up! speaker and VN tech advocate</p>
+</section>
+
+
+
+
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				slideNumber: true,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                                
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
