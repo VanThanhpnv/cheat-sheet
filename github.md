@@ -14,6 +14,8 @@ git clone https://github.com/PVN-Linagora/james-project
 
  - Changing of branch:
  
+ ![](branch.png)
+ 
  ```
  git checkout branchName
  ```
