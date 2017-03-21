@@ -4,6 +4,35 @@ We will use **Github** to work together. This small tutorial explains how to ope
 
 ------------------------------------------
 
+### Git reminder
+
+ - Importing a project:
+ 
+```
+git clone https://github.com/PVN-Linagora/james-project
+```
+
+ - Changing of branch:
+ 
+ ```
+ git checkout branchName
+ ```
+
+ - Saving changes:
+ 
+```
+git add path/to/file
+git commit -m "Message of the commit"
+```
+ 
+  - sending your changes to GitHub
+
+```
+git push origin branchName
+```
+
+------------------------------------------
+
  - 1/ Visit https://github.com/PVN-Linagora/james-project
  
  - 2/ Click the fork button : 
